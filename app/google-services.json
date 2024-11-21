@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "233017315908",
+    "project_id": "bsuir-schedule-app-7e95b",
+    "storage_bucket": "bsuir-schedule-app-7e95b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233017315908:android:5327e88b3cbbae622da211",
+        "android_client_info": {
+          "package_name": "com.example.bsuir_schedule_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt-7-bxlYAaWrUuNo8pS0Ue4Fe0rMGbEo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
