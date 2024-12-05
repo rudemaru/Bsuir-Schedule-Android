@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(user.getEmail());
         }
 
-        // Вызов функции из C++ и отображение результата
         String messageFromCpp = stringFromJNI();
         textView.setText(messageFromCpp); // Обновляем текстовое поле
 
@@ -77,6 +76,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // Объявление нативного метода
     public native String stringFromJNI();
 }

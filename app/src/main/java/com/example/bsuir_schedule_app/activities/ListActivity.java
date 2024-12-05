@@ -140,7 +140,7 @@ public class ListActivity extends AppCompatActivity {
                 });
             } catch (IOException e) {
                 runOnUiThread(() -> {
-                    Toast.makeText(ListActivity.this, "Ошибка при получении расписания", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ListActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                 });
             }
         }).start();

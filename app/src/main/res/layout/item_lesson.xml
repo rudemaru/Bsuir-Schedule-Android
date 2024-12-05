@@ -7,45 +7,61 @@
     android:elevation="4dp"
     app:cardCornerRadius="8dp">
 
-<LinearLayout
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="vertical"
-android:padding="16dp">
-
-<TextView
-    android:id="@+id/subjectTextView"
-    android:layout_marginBottom="2sp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="18sp"
-    android:textStyle="bold" />
-
-<TextView
-    android:id="@+id/timeTextView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="14sp" />
-
-<TextView
-    android:id="@+id/lessonTypeTextView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="14sp" />
-
-<TextView
-    android:id="@+id/subgroupTextView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="14sp"
-    android:visibility="gone" /> <!-- Скрыто по умолчанию -->
-
-    <TextView
-        android:id="@+id/weekNumberTextView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_marginTop="4dp" />
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-</LinearLayout>
-    </androidx.cardview.widget.CardView>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/subjectTextView"
+            android:layout_marginBottom="2sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/bsuir_blue"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/timeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/lessonTypeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/subgroupTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:visibility="gone" /> <!-- Скрыто по умолчанию -->
+
+        <TextView
+            android:id="@+id/weekNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/typeIndicator"
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp" /> <!-- Отступ от текста -->
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/light_blue"
     android:gravity="center"
     android:padding="20dp"
     tools:context=".activities.LoginActivity">
@@ -66,7 +67,7 @@
         android:paddingHorizontal="30dp"
         android:textSize="25sp"
         android:textColorHint="@color/white"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/bsuir_light_blue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

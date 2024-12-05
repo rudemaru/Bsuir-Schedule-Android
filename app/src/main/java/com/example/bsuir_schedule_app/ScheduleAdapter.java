@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.bsuir_schedule_app.model.LessonInfo;
 
@@ -50,7 +51,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             ((DayViewHolder) holder).dayTextView.setText(day);
         } else if (holder instanceof LessonViewHolder) {
             LessonInfo lesson = (LessonInfo) combinedList.get(position);
-            ((LessonViewHolder) holder).subjectTextView.setText(lesson.getSubject());
+            ((LessonViewHolder) holder).subjectTextView.setText(lesson.getSubjectFullName() + " (" + lesson.getSubject() + ")");
             ((LessonViewHolder) holder).timeTextView.setText(lesson.getStartLessonTime() + " - " + lesson.getEndLessonTime());
             ((LessonViewHolder) holder).lessonTypeTextView.setText(lesson.getLessonTypeAbbrev());
 
@@ -73,6 +74,23 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 weekNumbers.append("Нет данных");
             }
             ((LessonViewHolder) holder).weekNumberTextView.setText(weekNumbers.toString().trim());
+
+            // Установка цвета полоски в зависимости от lessonTypeAbbrev
+            View typeIndicator = ((LessonViewHolder) holder).itemView.findViewById(R.id.typeIndicator);
+            switch (lesson.getLessonTypeAbbrev()) {
+                case "ЛК": // Пример для лекции
+                    typeIndicator.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.green));
+                    break;
+                case "ЛР": // Пример для семинара
+                    typeIndicator.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.red));
+                    break;
+                case "ПЗ": // Пример для практики
+                    typeIndicator.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.yellow));
+                    break;
+                default:
+                    typeIndicator.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.undefined)); // Цвет по умолчанию
+                    break;
+            }
         }
     }
 

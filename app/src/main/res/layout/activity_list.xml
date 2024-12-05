@@ -9,6 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@color/light_blue"
+        android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/default_item_background"
         android:padding="16dp">
 
         <EditText
@@ -16,34 +24,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Введите номер группы" />
+            android:paddingVertical="10dp"
+            android:hint="@string/enterGroupNumber"
+            android:background="@drawable/rounded_edittext_background" /> <!-- Применение фона -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
 
             <Button
                 android:id="@+id/buttonAdd"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Добавить" />
+                android:backgroundTint="@color/bsuir_blue"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="Сохранить" />
 
             <Button
                 android:id="@+id/buttonRemove"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/bsuir_blue"
+                android:textColor="@color/white"
+                android:textStyle="bold"
                 android:text="Удалить" />
         </LinearLayout>
+    </LinearLayout>
 
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="8dp" /> <!-- Высота между элементами -->
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView

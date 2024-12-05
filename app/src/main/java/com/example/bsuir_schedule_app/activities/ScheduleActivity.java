@@ -39,6 +39,7 @@ public class ScheduleActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     private FirebaseAuth auth;
+    private TextView weekNumberTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class ScheduleActivity extends AppCompatActivity {
         scheduleAdapter = new ScheduleAdapter(combinedList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(scheduleAdapter);
+        weekNumberTextView = findViewById(R.id.weekNumber);
 
         String groupNumber = getIntent().getStringExtra("GROUP_NUMBER");
 
@@ -65,11 +67,13 @@ public class ScheduleActivity extends AppCompatActivity {
                 try {
                     ApiClient apiClient = new ApiClient();
                     Schedule schedule = apiClient.getSchedule(groupNumber);
+                    Integer currentWeek = apiClient.getCurrentWeek();
 
                     runOnUiThread(() -> {
                         if (schedule != null && schedule.getSchedules() != null) {
 
                             Log.i(TAG, "schedule != null && schedule.getSchedules() != null");
+                            weekNumberTextView.setText(String.valueOf(currentWeek));
 
                             List<LessonInfo> mondayLessons = new ArrayList<>();
                             List<LessonInfo> tuesdayLessons = new ArrayList<>();
@@ -84,7 +88,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
                                 if (!lessonInfo.getAnnouncement() &&
                                         !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("консультация") &&
-                                        !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("экзамен")){
+                                        !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("экзамен") && lessonInfo.getWeekNumber().contains(currentWeek)){
                                     mondayLessons.add(lessonInfo);
                                 }
                             }
@@ -95,7 +99,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
                                 if (!lessonInfo.getAnnouncement() &&
                                         !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("консультация") &&
-                                        !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("экзамен")) {
+                                        !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("экзамен") && lessonInfo.getWeekNumber().contains(currentWeek)) {
                                     tuesdayLessons.add(lessonInfo);
                                 }
                             }
@@ -106,7 +110,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
                                 if (!lessonInfo.getAnnouncement() &&
                                         !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("консультация") &&
-                                        !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("экзамен")){
+                                        !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("экзамен") && lessonInfo.getWeekNumber().contains(currentWeek)){
                                     wednesdayLessons.add(lessonInfo);
                                 }
                             }
@@ -117,7 +121,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
                                 if (!lessonInfo.getAnnouncement() &&
                                         !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("консультация") &&
-                                        !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("экзамен")){
+                                        !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("экзамен") && lessonInfo.getWeekNumber().contains(currentWeek)){
                                     thursdayLessons.add(lessonInfo);
                                 }
                             }
@@ -128,7 +132,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
                                 if (!lessonInfo.getAnnouncement() &&
                                         !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("консультация") &&
-                                        !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("экзамен")){
+                                        !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("экзамен") && lessonInfo.getWeekNumber().contains(currentWeek)){
                                     fridayLessons.add(lessonInfo);
                                 }
                             }
@@ -139,7 +143,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
                                 if (!lessonInfo.getAnnouncement() &&
                                         !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("консультация") &&
-                                        !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("экзамен")){
+                                        !lessonInfo.getLessonTypeAbbrev().equalsIgnoreCase("экзамен") && lessonInfo.getWeekNumber().contains(currentWeek)){
                                     saturdayLessons.add(lessonInfo);
                                 }
                             }

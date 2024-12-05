@@ -34,12 +34,18 @@ public class LessonInfo {
     @SerializedName("split")
     public Boolean split;
 
+    @SerializedName("startLessonDate")
+    public String startLessonDate;
+
+    @SerializedName("endLessonDate")
+    public String endLessonDate;
+
     public LessonInfo() {}
 
     public LessonInfo(Boolean announcement, List<Integer> weekNumber, Integer numSubgroup,
                       List<String> auditories, String startLessonTime, String endLessonTime,
                       String subject, String subjectFullName, String lessonTypeAbbrev,
-                      Boolean split) {
+                      Boolean split, String startLessonDate, String endLessonDate) {
         this.announcement = announcement;
         this.weekNumber = weekNumber;
         this.numSubgroup = numSubgroup;
@@ -50,6 +56,8 @@ public class LessonInfo {
         this.subjectFullName = subjectFullName;
         this.lessonTypeAbbrev = lessonTypeAbbrev;
         this.split = split;
+        this.startLessonDate = startLessonDate;
+        this.endLessonDate = endLessonDate;
     }
 
     public Boolean getAnnouncement() {
@@ -134,5 +142,21 @@ public class LessonInfo {
 
     public String getStartLessonTimeForSorting() {
         return startLessonTime;
+    }
+
+    public String getStartLessonDate() {
+        return startLessonDate;
+    }
+
+    public void setStartLessonDate(String startLessonDate) {
+        this.startLessonDate = startLessonDate;
+    }
+
+    public String getEndLessonDate() {
+        return endLessonDate;
+    }
+
+    public void setEndLessonDate(String endLessonDate) {
+        this.endLessonDate = endLessonDate;
     }
 }

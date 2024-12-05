@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class ApiClient {
     private static final String BASE_URL = "https://iis.bsuir.by/api/v1/schedule?studentGroup=";
+    private static final String WEEK_URL = "https://iis.bsuir.by/api/v1/schedule/current-week";
 
     private final OkHttpClient client;
     private final Gson gson;
@@ -31,6 +32,20 @@ public class ApiClient {
             }
             String jsonResponse = response.body().string();
             return gson.fromJson(jsonResponse, Schedule.class);
+        }
+    }
+
+    public Integer getCurrentWeek() throws IOException {
+        Request request = new Request.Builder()
+                .url(WEEK_URL)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            if (!response.isSuccessful()) {
+                throw new IOException("Unexpected code " + response);
+            }
+            String jsonResponse = response.body().string();
+            return gson.fromJson(jsonResponse, Integer.class);
         }
     }
 }

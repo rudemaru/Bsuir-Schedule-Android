@@ -2,5 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="blue">#3F51B5</color>
+    <color name="bsuir_blue">#3a547f</color>
+    <color name="bsuir_dark_blue">#151A23</color>
+    <color name="bsuir_light_blue">#1F4E99</color>
+    <color name="bsuir_lightest_blue">#004ECC</color>
+    <color name="green">#07C600</color>
+    <color name="red">#C50300</color>
+    <color name="yellow">#F7E700</color>
+    <color name="light_blue">#7588A4</color>
+    <color name="gray">#B4B4B4</color>
+    <color name="undefined">#7D7F80</color>
 </resources>
